@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ExchangeRate</string>
+
+    <string name="transaction">Transaction</string>
+    <string name="exchange_rate">Exchange rate</string>
+    <string name="calculator">Calculator</string>
+    <string name="more">More</string>
+    <string name="banks">Banks</string>
+    <string name="exchange_locations">Exc. Locations</string>
+    <string name="kb">KB</string>
+    <string name="cache">Cache</string>
+    <string name="non_cache">Non cache</string>
+    <string name="distance">Distance</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sel.</string>
+    <string name="contact_number">Contact number</string>
+    <string name="working_days">Working days</string>
+    <string name="see_on_map">See on map</string>
+</resources>

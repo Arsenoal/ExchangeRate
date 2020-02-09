@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff9900</color>
+    <color name="colorPrimaryDark">@android:color/transparent</color>
+    <color name="colorAccent">@color/colorPrimary</color>
+
+    <color name="white">#ffffff</color>
+    <color name="whiteTransparentOnePercent">#03000000</color>
+    <color name="whiteTransparentFivePercent">#0D000000</color>
+    <color name="whiteTransparentTenPercent">#1A000000</color>
+    <color name="whiteTransparentTwentyPercent">#33000000</color>
+    <color name="whiteTransparentThirtyPercent">#4D000000</color>
+    <color name="whiteTransparentFortyPercent">#66000000</color>
+    <color name="whiteTransparentFiftyPercent">#80000000</color>
+    <color name="whiteTransparentSixtyPercent">#99000000</color>
+    <color name="whiteTransparentSeventyPercent">#B3000000</color>
+    <color name="whiteTransparentEightyPercent">#CC000000</color>
+    <color name="whiteTransparentNinetyPercent">#E6000000</color>
+    <color name="black">#000000</color>
+    <color name="blackTransparent">#0D000000</color>
+</resources>

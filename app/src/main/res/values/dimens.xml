@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_page_toolbar_height">65dp</dimen>
+    <dimen name="main_page_options_menu_height">50dp</dimen>
+    
+    <dimen name="padding_small">10dp</dimen>
+    <dimen name="padding_small_medium">15dp</dimen>
+    <dimen name="padding_medium">20dp</dimen>
+
+    <dimen name="margin_very_small">5dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_medium_small">15dp</dimen>
+    <dimen name="margin_medium">20dp</dimen>
+    <dimen name="margin_medium_big">25dp</dimen>
+    <dimen name="margin_big">30dp</dimen>
+
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+</resources>

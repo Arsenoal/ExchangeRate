@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExchangeRate</string>
+
+    <string name="transaction">Сделка</string>
+    <string name="exchange_rate">Обменный курс</string>
+    <string name="calculator">Калькулятор</string>
+    <string name="more">Более</string>
+    <string name="banks">Банки</string>
+    <string name="exchange_locations">Точки обмена</string>
+    <string name="kb">КБ</string>
+    <string name="cache">Наличные</string>
+    <string name="non_cache">Не наличными</string>
+    <string name="distance">Дистанция</string>
+    <string name="buy">Пок.</string>
+    <string name="sell">Про.</string>
+    <string name="contact_number">Номер обратной связи</string>
+    <string name="working_days">Рабочие дни</string>
+    <string name="see_on_map">Увидеть на карте</string>
+</resources>

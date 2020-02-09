@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="currencies">
+        <item>USD</item>
+    </array>
+
+    <array name="weekDaysEn">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </array>
+
+    <array name="weekDaysRu">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </array>
+
+    <array name="weekDaysAm">
+        <item>Երկուշաբթի</item>
+        <item>Երեքշաբթի</item>
+        <item>Չորեքշաբթի</item>
+        <item>Հինգշաբթի</item>
+        <item>Ուրբաթ</item>
+        <item>Շաբաթ</item>
+        <item>Կիրակի</item>
+    </array>
+
+</resources>

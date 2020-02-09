@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExchangeRate</string>
+
+    <string name="transaction">Գործարք</string>
+    <string name="exchange_rate">Փոխարժեք</string>
+    <string name="calculator">Հաշվիչ</string>
+    <string name="more">Ավելին</string>
+    <string name="banks">Բանկեր</string>
+    <string name="exchange_locations">Փոխ. կետեր</string>
+    <string name="kb">ԿԲ</string>
+    <string name="cache">կանխիկ</string>
+    <string name="non_cache">Անկանխիկ</string>
+    <string name="distance">հերավորություն</string>
+    <string name="buy">Արք</string>
+    <string name="sell">Վաճ.</string>
+    <string name="contact_number">Կոնտակտային համար</string>
+    <string name="working_days">Աշխատանքային օրեր</string>
+    <string name="see_on_map">Դիտել քարտեզի վրա</string>
+</resources>
