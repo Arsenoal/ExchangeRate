@@ -7,7 +7,7 @@ ext {
     androidCompileSdkVersion = 28
 
     //Libraries
-    kotlinVersion = '1.3.41'
+    kotlinVersion = '1.3.50'
     supportLibraryVersion = '1.0.0'
     constraintVersion = '1.1.3'
     lifecycleExtensionsVersion = '2.0.0'
@@ -15,11 +15,9 @@ ext {
     koinVersion = '2.0.1'
     reactivexRxKotlinVersion = '2.2.9'
     reactivexRxAndroidVersion = '2.1.1'
-    retrofitVersion = '2.6.0'
-    retrofitRxJavaVersion = '2.6.0'
-    retrofitGsonConverterVersion = '2.6.0'
-    retrofitScalarConverterVersion = '2.6.0'
-    okhttpVersion = '3.14.2'
+    retrofitVersion = '2.7.1'
+    retrofitGsonConverterVersion = '2.7.1'
+    okhttpVersion = '4.3.1'
     okioVersion = '2.2.2'
     archComponentsVersion = "2.0.0"
     timberVersion = "4.7.1"
@@ -37,15 +35,6 @@ ext {
     assertKVersion = '0.17'
     androidArchVersion = '2.0.1'
 
-    //material
-    materialVersion = '1.0.0'
-    materialCoreVersion = '3.1.1'
-
-    materialDependencies = [
-            material     : "com.google.android.material:material:$materialVersion",
-            dialog       : "com.afollestad.material-dialogs:core:$materialCoreVersion"
-    ]
-
     kotlinDependencies = [
             kotlinStdlib : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     ]
@@ -61,11 +50,6 @@ ext {
             coroutineViewmodel          : "androidx.lifecycle:lifecycle-viewmodel-ktx:$coroutineViewModelScopeVersion"
     ]
 
-    crashliticsDependencies = [
-            crashlitics        : 'com.crashlytics.sdk.android:crashlytics:2.10.1',
-            crashliticsNdk     : 'com.crashlytics.sdk.android:crashlytics-ndk:2.1.0',
-    ]
-
     networkDependencies = [
             retrofit                : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofitGsonConverter   : "com.squareup.retrofit2:converter-gson:$retrofitGsonConverterVersion",
@@ -73,26 +57,17 @@ ext {
 
     ]
 
-    ioDependencies = [
-            okio     : "com.squareup.okio:okio:$okioVersion"
-
-    ]
-
     koinDependencies = [
-            koinCore        : "org.koin:koin-core:$koinVersion",
-            koinAndroid     : "org.koin:koin-android:$koinVersion",
-            koinAndroidScope: "org.koin:koin-android-scope:$koinVersion",
-            koinViewmodel   : "org.koin:koin-android-viewmodel:$koinVersion",
-            koinTest        : "org.koin:koin-test:$koinVersion"
+            koinCore         : "org.koin:koin-core:$koinVersion",
+            koinAndroid      : "org.koin:koin-android:$koinVersion",
+            koinAndroidScope : "org.koin:koin-androidx-scope:$koinVersion",
+            koinAndroidArch  : "org.koin:koin-android-architecture:$koinVersion",
+            koinViewmodel    : "org.koin:koin-androidx-viewmodel:$koinVersion",
+            koinTest         : "org.koin:koin-test:$koinVersion"
     ]
 
     loggerDependencies = [
             timber     : "com.jakewharton.timber:timber:$timberVersion"
-    ]
-
-    rxDependencies = [
-            reactivexRxKotlin  : "io.reactivex.rxjava2:rxjava:$reactivexRxKotlinVersion",
-            reactivexRxAndroid : "io.reactivex.rxjava2:rxandroid:$reactivexRxAndroidVersion"
     ]
 
     testingDependencies = [

@@ -1,6 +1,7 @@
 package com.example.exchangerate.connector
 
 import android.content.Context
+import androidx.lifecycle.ViewModel
 import com.example.exchangerate.business.currency.GetCurrenciesListFromLocalArrayRes
 import com.example.exchangerate.business.currency.GetCurrenciesListUseCase
 import com.example.exchangerate.business.rates.GetRatesFromApi
@@ -14,7 +15,7 @@ import com.example.exchangerate.repo.rates.rates.RatesListRepo
 import com.example.exchangerate.repo.rates.service.currency.CurrenciesFromLocalRes
 import com.example.exchangerate.repo.rates.service.currency.CurrenciesService
 import com.example.exchangerate.repo.rates.service.rates.RatesListService
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 fun ratesModule(context: Context) = module {

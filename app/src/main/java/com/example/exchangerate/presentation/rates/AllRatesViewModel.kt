@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.exchangerate.business.currency.GetCurrenciesListUseCase
 import com.example.exchangerate.business.rates.GetRatesUseCase
 import com.example.exchangerate.common.toOrganizationAdapterModelByCurrentCurrency
-import com.example.exchangerate.presentation.rates.adapter.model.OrganizationAdapterModel
 import com.example.exchangerate.presentation.rates.adapter.model.OrganizationRatesModel
 import kotlinx.coroutines.launch
 import java.lang.Exception

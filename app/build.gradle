@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -33,10 +32,12 @@ dependencies {
 
     def support = rootProject.ext.supportLibraryDependencies
     implementation support.appCompatV7
-    implementation support.constraintLayout
-    implementation support.coroutineViewmodel
     implementation support.recyclerView
     implementation support.cardView
+    implementation support.constraintLayout
+    implementation support.supportAnnotations
+    implementation support.lifecycleExtensions
+    implementation support.coroutineViewmodel
 
     def kotlin = rootProject.ext.kotlinDependencies
     implementation kotlin.kotlinStdlib
@@ -50,16 +51,12 @@ dependencies {
     def network = rootProject.ext.networkDependencies
     implementation network.retrofit
     implementation network.okhttpLoger
-    implementation(network.retrofitGsonConverter) {
-        exclude group: "com.squareup.okhttp3"
-    }
+    implementation network.retrofitGsonConverter
 
     def logging = rootProject.ext.loggerDependencies
     implementation logging.timber
 
     def testing = rootProject.ext.testingDependencies
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation testing.junit
 
 }

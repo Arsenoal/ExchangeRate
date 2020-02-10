@@ -11,7 +11,7 @@ import com.example.exchangerate.presentation.BaseActivity
 import com.example.exchangerate.presentation.rates.adapter.CurrencyRecyclerAdapter
 import com.example.exchangerate.presentation.rates.adapter.model.CurrencyParcelable
 import kotlinx.android.synthetic.main.activity_single_organization.*
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 const val ORGANIZATION_ID_EXTRA = "organization_id_extra"
 const val ORGANIZATION_NAME_EXTRA = "organization_name_extra"

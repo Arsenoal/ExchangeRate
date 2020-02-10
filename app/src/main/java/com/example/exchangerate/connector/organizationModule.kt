@@ -14,7 +14,7 @@ import com.example.exchangerate.repo.rates.rates.WeekDaysProviderRepo
 import com.example.exchangerate.repo.rates.service.organization.OrganizationService
 import com.example.exchangerate.repo.rates.service.weekdaysProvider.WeekdaysProviderFromLocalRes
 import com.example.exchangerate.repo.rates.service.weekdaysProvider.WeekdaysProviderService
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 fun organizationModule(context: Context) = module {
