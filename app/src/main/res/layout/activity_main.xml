@@ -9,7 +9,9 @@
     tools:context=".presentation.rates.AllRatesActivity"
     >
 
+    <!-- TODO create custom view -->
     <LinearLayout
+        android:id="@+id/topNavigatorView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_page_toolbar_height"
         android:orientation="horizontal"
@@ -46,7 +48,7 @@
                 android:id="@+id/transactionTransparentLayerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/whiteTransparentTenPercent"
+                android:background="@color/blackTransparentTenPercent"
                 />
 
         </FrameLayout>
@@ -95,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone"
-                android:background="@color/whiteTransparentTenPercent"
+                android:background="@color/blackTransparentTenPercent"
                 />
 
         </FrameLayout>
@@ -129,7 +131,7 @@
                 android:id="@+id/calculatorTransparentLayerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/whiteTransparentTenPercent"
+                android:background="@color/blackTransparentTenPercent"
                 />
 
         </FrameLayout>
@@ -163,7 +165,7 @@
                 android:id="@+id/moreTransparentLayerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/whiteTransparentTenPercent"
+                android:background="@color/blackTransparentTenPercent"
                 />
 
         </FrameLayout>
@@ -217,7 +219,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_page_toolbar_height"
         android:padding="@dimen/padding_small"
-        android:background="@color/whiteTransparentTwentyPercent">
+        android:background="@color/gray">
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
@@ -241,12 +243,13 @@
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 app:srcCompat="@drawable/ic_arrow_down"
-                app:tint="@color/whiteTransparentSixtyPercent"
+                app:tint="@color/blackTransparentSixtyPercent"
                 android:layout_marginEnd="@dimen/margin_medium"
                 android:layout_gravity="center_vertical|end"/>
 
         </androidx.cardview.widget.CardView>
 
+        <!-- TODO create custom view -->
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -284,7 +287,7 @@
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 app:srcCompat="@drawable/ic_arrow_down"
-                app:tint="@color/whiteTransparentSixtyPercent"
+                app:tint="@color/blackTransparentSixtyPercent"
                 android:layout_marginEnd="@dimen/margin_medium"
                 android:layout_gravity="center_vertical|end"/>
 
@@ -314,7 +317,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_page_toolbar_height"
-        android:background="@drawable/shadow_bottom_background">
+        android:elevation="10dp"
+        android:background="#f5f5f5">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -333,7 +337,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="12dp"
                 android:layout_height="12dp"
-                app:tint="@color/whiteTransparentTenPercent"
+                app:tint="@color/blackTransparentTenPercent"
                 android:layout_marginStart="@dimen/margin_small"
                 android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/ic_arrow_down"/>
@@ -363,7 +367,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    app:tint="@color/whiteTransparentTenPercent"
+                    app:tint="@color/blackTransparentTenPercent"
                     android:layout_marginStart="@dimen/margin_small"
                     android:layout_gravity="center_vertical"
                     app:srcCompat="@drawable/ic_arrow_down"/>
@@ -385,7 +389,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    app:tint="@color/whiteTransparentTenPercent"
+                    app:tint="@color/blackTransparentTenPercent"
                     android:layout_marginStart="@dimen/margin_small"
                     android:layout_gravity="center_vertical"
                     app:srcCompat="@drawable/ic_arrow_down"/>
@@ -396,11 +400,21 @@
 
     </FrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/banksListRecyclerView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:itemCount="15"
-        tools:listitem="@layout/organization_recycler_item"/>
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/banksListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="15"
+            tools:listitem="@layout/organization_recycler_item"/>
+
+        <include
+            layout="@layout/layout_progress"/>
+
+    </FrameLayout>
 
 </LinearLayout>

@@ -1,23 +1,28 @@
 package com.example.exchangerate.presentation.rates
 
 import android.os.Bundle
+import android.view.View.GONE
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exchangerate.R
 import com.example.exchangerate.common.presentation.ActivityNavigator
-import com.example.exchangerate.presentation.BaseActivity
+import com.example.exchangerate.common.presentation.view.setupTransparentToolbar
+import com.example.exchangerate.common.presentation.view.slideDown
+import com.example.exchangerate.common.presentation.view.slideUp
+import com.example.exchangerate.presentation.base.FullScreenActivity
 import com.example.exchangerate.presentation.rates.adapter.OrganizationsRecyclerAdapter
 import com.example.exchangerate.presentation.rates.adapter.model.CurrencyParcelable
 import com.example.exchangerate.presentation.rates.adapter.model.OrganizationAdapterModel
 import com.example.exchangerate.presentation.rates.adapter.model.OrganizationRatesModel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_progress.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AllRatesActivity : BaseActivity() {
+class AllRatesActivity : FullScreenActivity() {
 
     private val allRatesViewModel: AllRatesViewModel by viewModel()
 
@@ -28,6 +33,8 @@ class AllRatesActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setupTopNavigatorViewHeight()
 
         setupRatesViewModel()
     }
@@ -81,13 +88,15 @@ class AllRatesActivity : BaseActivity() {
     private fun setupRatesViewModel() {
         allRatesViewModel.ratesAcquiredLiveData.observe(this, Observer { organizations ->
             this@AllRatesActivity.organizations = organizations
-            adapter.list = organizations.map {
-                it.organizationAdapterModel
-            }
+
+            adapter.list = organizations.map { it.organizationAdapterModel }
+
+            layoutProgressContainerView.slideDown()
         })
 
         allRatesViewModel.ratesAcquisitionFailedLiveData.observe(this, Observer {
-
+            layoutProgressContainerView.slideDown()
+            //TODO show error or retry
         })
 
         allRatesViewModel.currenciesAcquiredLiveData.observe(this, Observer {
@@ -109,5 +118,9 @@ class AllRatesActivity : BaseActivity() {
         banksListRecyclerView.adapter = adapter
 
         allRatesViewModel.loadAvailableCurrencies()
+    }
+
+    private fun setupTopNavigatorViewHeight() {
+        topNavigatorView.setupTransparentToolbar()
     }
 }

@@ -1,11 +1,5 @@
 
 ext {
-    //Android
-    androidBuildToolsVersion = '28.0.3'
-    androidMinSdkVersion = 21
-    androidTargetSdkVersion = 28
-    androidCompileSdkVersion = 28
-
     //Libraries
     kotlinVersion = '1.3.50'
     supportLibraryVersion = '1.0.0'
@@ -18,12 +12,8 @@ ext {
     retrofitVersion = '2.7.1'
     retrofitGsonConverterVersion = '2.7.1'
     okhttpVersion = '4.3.1'
-    okioVersion = '2.2.2'
     archComponentsVersion = "2.0.0"
     timberVersion = "4.7.1"
-
-    //room
-    roomVersion = "2.2.2"
 
     //Testing
     jUnitVersion = '4.12'
@@ -81,11 +71,5 @@ ext {
             mockitoInline  : "org.mockito:mockito-inline:$mockitoInlineVersion",
             assertk        : "com.willowtreeapps.assertk:assertk-jvm:$assertKVersion",
             androidArch    : "androidx.arch.core:core-testing:$androidArchVersion"
-    ]
-
-    roomDependencies = [
-            runtime          : "androidx.room:room-runtime:$roomVersion",
-            compiler         : "androidx.room:room-compiler:$roomVersion",
-            coroutine        : "androidx.room:room-ktx:$roomVersion"
     ]
 }

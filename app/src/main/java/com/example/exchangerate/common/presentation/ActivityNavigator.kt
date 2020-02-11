@@ -2,7 +2,7 @@ package com.example.exchangerate.common.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import com.example.exchangerate.presentation.BaseActivity
+import com.example.exchangerate.presentation.base.BaseActivity
 
 object ActivityNavigator {
     fun navigate(activity: BaseActivity, targetActivityClassName: Class<out BaseActivity>) {

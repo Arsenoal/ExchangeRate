@@ -82,7 +82,7 @@
                             android:layout_height="1dp"
                             android:layout_marginTop="@dimen/margin_small"
                             android:layout_marginBottom="@dimen/margin_small"
-                            android:background="@color/whiteTransparentTwentyPercent"
+                            android:background="@color/blackTransparentTwentyPercent"
                             />
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -211,7 +211,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginTop="@dimen/margin_big"
-                            android:background="@color/whiteTransparentTwentyPercent"
+                            android:background="@color/blackTransparentTwentyPercent"
                             />
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -312,7 +312,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    app:tint="@color/whiteTransparentTenPercent"
+                    app:tint="@color/blackTransparentTenPercent"
                     android:layout_marginStart="@dimen/margin_small"
                     android:layout_gravity="center_vertical"
                     app:srcCompat="@drawable/ic_arrow_down"/>
@@ -342,7 +342,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="12dp"
                         android:layout_height="12dp"
-                        app:tint="@color/whiteTransparentTenPercent"
+                        app:tint="@color/blackTransparentTenPercent"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_gravity="center_vertical"
                         app:srcCompat="@drawable/ic_arrow_down"/>
@@ -364,7 +364,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="12dp"
                         android:layout_height="12dp"
-                        app:tint="@color/whiteTransparentTenPercent"
+                        app:tint="@color/blackTransparentTenPercent"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_gravity="center_vertical"
                         app:srcCompat="@drawable/ic_arrow_down"/>

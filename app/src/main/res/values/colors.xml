@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#ff9900</color>
-    <color name="colorPrimaryDark">@android:color/transparent</color>
+    <color name="colorPrimaryDark">@color/blackTransparentFivePercent</color>
     <color name="colorAccent">@color/colorPrimary</color>
 
     <color name="white">#ffffff</color>
-    <color name="whiteTransparentOnePercent">#03000000</color>
-    <color name="whiteTransparentFivePercent">#0D000000</color>
-    <color name="whiteTransparentTenPercent">#1A000000</color>
-    <color name="whiteTransparentTwentyPercent">#33000000</color>
-    <color name="whiteTransparentThirtyPercent">#4D000000</color>
-    <color name="whiteTransparentFortyPercent">#66000000</color>
-    <color name="whiteTransparentFiftyPercent">#80000000</color>
-    <color name="whiteTransparentSixtyPercent">#99000000</color>
-    <color name="whiteTransparentSeventyPercent">#B3000000</color>
-    <color name="whiteTransparentEightyPercent">#CC000000</color>
-    <color name="whiteTransparentNinetyPercent">#E6000000</color>
+    <color name="whiteTransparentOnePercent">#03ffffff</color>
+    <color name="whiteTransparentFivePercent">#0Dffffff</color>
+    <color name="whiteTransparentTenPercent">#1Affffff</color>
+    <color name="whiteTransparentFifteenPercent">#26ffffff</color>
+    <color name="whiteTransparentTwentyPercent">#33ffffff</color>
+    <color name="whiteTransparentThirtyPercent">#4Dffffff</color>
+    <color name="whiteTransparentFortyPercent">#66ffffff</color>
+    <color name="whiteTransparentFiftyPercent">#80ffffff</color>
+    <color name="whiteTransparentSixtyPercent">#99ffffff</color>
+    <color name="whiteTransparentSeventyPercent">#B3ffffff</color>
+    <color name="whiteTransparentEightyPercent">#CCffffff</color>
+    <color name="whiteTransparentNinetyPercent">#E6ffffff</color>
+
     <color name="black">#000000</color>
-    <color name="blackTransparent">#0D000000</color>
+    <color name="blackTransparentOnePercent">#03000000</color>
+    <color name="blackTransparentFivePercent">#0D000000</color>
+    <color name="blackTransparentTenPercent">#1A000000</color>
+    <color name="blackTransparentFifteenPercent">#26000000</color>
+    <color name="blackTransparentTwentyPercent">#33000000</color>
+    <color name="blackTransparentThirtyPercent">#4D000000</color>
+    <color name="blackTransparentFortyPercent">#66000000</color>
+    <color name="blackTransparentFiftyPercent">#80000000</color>
+    <color name="blackTransparentSixtyPercent">#99000000</color>
+    <color name="blackTransparentSeventyPercent">#B3000000</color>
+    <color name="blackTransparentEightyPercent">#CC000000</color>
+    <color name="blackTransparentNinetyPercent">#E6000000</color>
+
+    <color name="gray">#f2f2f2</color>
 </resources>

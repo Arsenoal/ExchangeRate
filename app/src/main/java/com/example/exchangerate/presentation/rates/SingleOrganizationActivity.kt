@@ -7,7 +7,7 @@ import com.example.exchangerate.R
 import com.example.exchangerate.common.empty
 import com.example.exchangerate.entity.rates.BuySell
 import com.example.exchangerate.entity.rates.Currency
-import com.example.exchangerate.presentation.BaseActivity
+import com.example.exchangerate.presentation.base.FullScreenActivity
 import com.example.exchangerate.presentation.rates.adapter.CurrencyRecyclerAdapter
 import com.example.exchangerate.presentation.rates.adapter.model.CurrencyParcelable
 import kotlinx.android.synthetic.main.activity_single_organization.*
@@ -17,7 +17,7 @@ const val ORGANIZATION_ID_EXTRA = "organization_id_extra"
 const val ORGANIZATION_NAME_EXTRA = "organization_name_extra"
 const val ORGANIZATION_AVAILABLE_CURRENCIES_EXTRA = "organization_available_currencies_extra"
 
-class SingleOrganizationActivity : BaseActivity() {
+class SingleOrganizationActivity : FullScreenActivity() {
 
     private val singleOrganizationViewModel: SingleOrganizationViewModel by viewModel()
 
