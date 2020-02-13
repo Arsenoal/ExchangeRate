@@ -25,6 +25,20 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layouts/customlayout',
+                            'src/main/res/layouts/fragment',
+                            'src/main/res/layouts/activity',
+                            'src/main/res/layouts/recycleritem',
+                            'src/main/res/layouts',
+                            'src/main/res'
+                    ]
+        }
+    }
 }
 
 dependencies {
@@ -38,6 +52,9 @@ dependencies {
     implementation support.supportAnnotations
     implementation support.lifecycleExtensions
     implementation support.coroutineViewmodel
+
+    def material = rootProject.ext.materialDependencies
+    implementation material.material
 
     def kotlin = rootProject.ext.kotlinDependencies
     implementation kotlin.kotlinStdlib

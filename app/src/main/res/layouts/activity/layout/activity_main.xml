@@ -10,7 +10,7 @@
     >
 
     <!-- TODO create custom view -->
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/topNavigatorView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_page_toolbar_height"
@@ -170,7 +170,12 @@
 
         </FrameLayout>
 
-    </LinearLayout>
+    </LinearLayout>-->
+
+    <FrameLayout
+        android:id="@+id/navBarFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_page_toolbar_height"/>
 
     <RadioGroup
         android:layout_width="match_parent"

@@ -1,15 +1,15 @@
 package com.example.exchangerate.presentation.rates
 
 import android.os.Bundle
-import android.view.View.GONE
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exchangerate.R
 import com.example.exchangerate.common.presentation.ActivityNavigator
-import com.example.exchangerate.common.presentation.view.setupTransparentToolbar
+import com.example.exchangerate.common.presentation.FragmentNavigator
+import com.example.exchangerate.common.presentation.view.appendToolBarHeight
 import com.example.exchangerate.common.presentation.view.slideDown
-import com.example.exchangerate.common.presentation.view.slideUp
 import com.example.exchangerate.presentation.base.FullScreenActivity
+import com.example.exchangerate.presentation.common.navigator.NavigatorFragment
 import com.example.exchangerate.presentation.rates.adapter.OrganizationsRecyclerAdapter
 import com.example.exchangerate.presentation.rates.adapter.model.CurrencyParcelable
 import com.example.exchangerate.presentation.rates.adapter.model.OrganizationAdapterModel
@@ -121,6 +121,9 @@ class AllRatesActivity : FullScreenActivity() {
     }
 
     private fun setupTopNavigatorViewHeight() {
-        topNavigatorView.setupTransparentToolbar()
+
+        navBarFragmentContainer.appendToolBarHeight()
+
+        FragmentNavigator.addFragment(this, NavigatorFragment.newInstance(), navBarFragmentContainer.id)
     }
 }

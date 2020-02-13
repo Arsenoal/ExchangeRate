@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/topNavigatorView"
+        android:layout_height="@dimen/main_page_toolbar_height"
+        android:layout_width="match_parent"
+        app:tabTextColor="@color/whiteTransparentSixtyPercent"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIconTint="@color/whiteTransparentSixtyPercent"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorHeight="4dp"
+        app:tabTextAppearance="@style/MineCustomTabText"
+        >
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/transactionTabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_dollar"
+            android:text="@string/transaction"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/exchangeRateTabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_dollar"
+            android:text="@string/exchange_rate"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/calculatorTabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_calculator"
+            android:text="@string/calculator"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/moreTabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_menu"
+            android:text="@string/more"
+            />
+
+    </com.google.android.material.tabs.TabLayout>
+
+</FrameLayout>

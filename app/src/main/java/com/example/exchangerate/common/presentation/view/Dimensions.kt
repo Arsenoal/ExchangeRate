@@ -1,12 +1,22 @@
 package com.example.exchangerate.common.presentation.view
 
 import android.content.Context
+import android.content.res.Resources
+import android.util.TypedValue
 
-fun getStatusBarHeight(context: Context): Int {
+
+
+fun Context.getStatusBarHeight(): Int {
     var result = 0
-    val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
+    val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
     if (resourceId > 0) {
-        result = context.resources.getDimensionPixelSize(resourceId)
+        result = resources.getDimensionPixelSize(resourceId)
     }
     return result
+}
+
+fun Float.toPx(resources: Resources): Float {
+    return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP, this,
+            resources.displayMetrics)
 }
