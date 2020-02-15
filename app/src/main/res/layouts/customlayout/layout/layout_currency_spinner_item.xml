@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/padding_small"
+    android:paddingEnd="0dp"
+    android:layout_width="@dimen/spinner_width_medium"
+    android:layout_height="@dimen/shrine_spinner_height">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/currencyIconView"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center_vertical"
+        app:srcCompat="@drawable/ic_united_states_flag"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/currencyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/blackTransparentEightyPercent"
+        android:layout_marginStart="@dimen/margin_small"
+        tools:text="USD"
+        />
+
+</LinearLayout>

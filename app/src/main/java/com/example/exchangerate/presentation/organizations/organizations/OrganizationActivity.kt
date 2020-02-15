@@ -9,6 +9,7 @@ import com.example.exchangerate.common.presentation.FragmentNavigator
 import com.example.exchangerate.common.presentation.view.appendToolBarHeight
 import com.example.exchangerate.common.presentation.view.slideDown
 import com.example.exchangerate.common.toArrayAdapter
+import com.example.exchangerate.common.toSpinnerWithIconItems
 import com.example.exchangerate.presentation.base.FullScreenActivity
 import com.example.exchangerate.presentation.common.entity.ERSuccess
 import com.example.exchangerate.presentation.common.navigator.NavigatorFragment
@@ -116,7 +117,9 @@ class OrganizationActivity : FullScreenActivity() {
             when(state.status) {
                 ERSuccess -> {
                     state.result.let { list ->
-                        //exchangeCurrencyTextView.text = list[0]
+                        currenciesView.adapter = list.toSpinnerWithIconItems().run {
+                            toArrayAdapter(this@OrganizationActivity, R.layout.layout_currency_spinner_item)
+                        }
                         organizationsViewModel.loadRatesByCurrency(list[0])
                     }
                 }

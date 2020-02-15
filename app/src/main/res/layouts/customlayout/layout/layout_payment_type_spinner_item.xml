@@ -2,12 +2,12 @@
 <androidx.appcompat.widget.AppCompatTextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/shrine_spinner_width"
+    android:layout_width="@dimen/spinner_width_large"
     android:layout_height="@dimen/shrine_spinner_height"
     android:textSize="@dimen/text_size_medium"
     android:textColor="@color/blackTransparentEightyPercent"
-    android:background="@color/white"
     android:gravity="center_vertical"
-    android:paddingStart="@dimen/padding_small_medium"
-    android:paddingEnd="@dimen/padding_small_medium"
+    android:paddingStart="@dimen/padding_small"
+    android:paddingEnd="@dimen/padding_small"
+    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
     tools:text="@string/cache" />

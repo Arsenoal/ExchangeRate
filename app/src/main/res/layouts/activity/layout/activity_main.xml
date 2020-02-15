@@ -86,7 +86,7 @@
         android:background="@color/gray">
 
         <FrameLayout
-            android:layout_width="@dimen/shrine_spinner_width"
+            android:layout_width="@dimen/spinner_width_large"
             android:layout_height="wrap_content"
             android:background="@drawable/background_white_rounded_corners">
 
@@ -94,107 +94,41 @@
                 android:id="@+id/paymentVariantsView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:dropDownWidth="@dimen/shrine_spinner_width"
-                android:maxWidth="@dimen/shrine_spinner_width"
-                android:layout_marginStart="@dimen/margin_very_small"
-                android:layout_marginEnd="@dimen/margin_very_small"
+                android:dropDownWidth="@dimen/spinner_width_large"
+                android:maxWidth="@dimen/spinner_width_large"
                 />
 
         </FrameLayout>
 
-        <!--<androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp"
-            android:layout_marginEnd="@dimen/margin_very_small"
-            android:layout_weight="4">
+        <FrameLayout
+            android:layout_width="@dimen/spinner_width_medium"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:background="@drawable/background_white_rounded_corners">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cacheTextView"
+            <Spinner
+                android:id="@+id/currenciesView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_small"
-                android:textColor="@color/blackTransparentEightyPercent"
-                android:textSize="@dimen/text_size_medium"
-                android:layout_gravity="center_vertical|start"
-                android:text="@string/cache"/>
+                android:dropDownWidth="@dimen/spinner_width_medium"
+                android:maxWidth="@dimen/spinner_width_medium"
+                />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/shrine_spinner_height"
+            android:layout_height="@dimen/shrine_spinner_height"
+            android:layout_marginStart="@dimen/margin_small"
+            android:background="@drawable/background_white_rounded_corners">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:srcCompat="@drawable/ic_arrow_down"
-                app:tint="@color/blackTransparentSixtyPercent"
-                android:layout_marginEnd="@dimen/margin_medium"
-                android:layout_gravity="center_vertical|end"/>
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_pin"
+                android:layout_gravity="center"/>
 
-        </androidx.cardview.widget.CardView>-->
-
-        <!--<androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_very_small"
-            android:layout_marginEnd="@dimen/margin_very_small"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp"
-            android:layout_weight="3">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|start"
-                android:layout_marginStart="@dimen/margin_medium_small"
-                android:orientation="horizontal">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/currentCurrencyFlagImageView"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    app:srcCompat="@drawable/ic_united_states_flag"/>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/exchangeCurrencyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:textColor="@color/blackTransparentEightyPercent"
-                    android:textSize="@dimen/text_size_medium"
-                    android:layout_gravity="center_vertical"
-                    tools:text="USD"/>
-
-            </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:srcCompat="@drawable/ic_arrow_down"
-                app:tint="@color/blackTransparentSixtyPercent"
-                android:layout_marginEnd="@dimen/margin_medium"
-                android:layout_gravity="center_vertical|end"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_very_small"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp"
-            android:layout_weight="1">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/location"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:scaleType="centerCrop"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/ic_pin"/>
-
-        </androidx.cardview.widget.CardView>-->
+        </FrameLayout>
 
     </LinearLayout>
 
