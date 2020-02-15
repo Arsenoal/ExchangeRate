@@ -7,7 +7,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/topNavigatorView"
-        android:layout_height="@dimen/main_page_toolbar_height"
+        android:layout_height="@dimen/main_page_navbar_height"
         android:layout_width="match_parent"
         app:tabTextColor="@color/whiteTransparentSixtyPercent"
         app:tabSelectedTextColor="@color/white"

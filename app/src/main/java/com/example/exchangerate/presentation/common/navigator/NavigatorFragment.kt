@@ -1,5 +1,6 @@
 package com.example.exchangerate.presentation.common.navigator
 
+import android.content.Context
 import android.graphics.*
 import android.os.Bundle
 import android.view.MotionEvent
@@ -9,6 +10,7 @@ import androidx.core.content.ContextCompat
 import com.example.exchangerate.R
 import com.example.exchangerate.common.presentation.view.getStatusBarHeight
 import com.example.exchangerate.presentation.base.BaseFragment
+import com.example.exchangerate.presentation.organizations.organizations.OrganizationActivity
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_navigator.*
 
@@ -17,11 +19,20 @@ private const val COLOR_TAB_SELECTED = R.color.whiteTransparentSixtyPercent
 
 class NavigatorFragment: BaseFragment() {
 
+    lateinit var navigatorViewModel: NavigatorViewModel
+
     override fun getLayoutId() = R.layout.fragment_navigator
 
     override fun onLayoutReady(view: View, savedInstanceState: Bundle?) {
         setupTabLayout()
         setupTopPadding(view)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        if (context is OrganizationActivity)
+            navigatorViewModel = context.navigatorViewModel
     }
 
     private fun setupTabLayout() {
@@ -38,9 +49,14 @@ class NavigatorFragment: BaseFragment() {
             }
 
             override fun onTabSelected(tabItem: TabLayout.Tab?) {
-                context?.let { context ->
-                    tabItem?.icon?.run {
-                        colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, COLOR_TAB_NOT_SELECTED), PorterDuff.Mode.DST_IN)
+
+                tabItem?.run {
+                    navigatorViewModel.itemSelected(position)
+
+                    context?.let { context ->
+                        icon?.run {
+                            colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, COLOR_TAB_NOT_SELECTED), PorterDuff.Mode.DST_IN)
+                        }
                     }
                 }
             }
@@ -52,7 +68,7 @@ class NavigatorFragment: BaseFragment() {
         val childCount = tabStrip.childCount
 
         for(i in 0 until childCount) {
-            tabStrip.getChildAt(i).setOnTouchListener { v, event -> true }
+            tabStrip.getChildAt(i).setOnTouchListener { _, _ -> true }
         }
     }
 

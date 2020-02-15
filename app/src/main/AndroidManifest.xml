@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".presentation.rates.SingleOrganizationActivity"/>
+        <activity android:name=".presentation.organizations.SingleOrganizationActivity"/>
 
-        <activity android:name=".presentation.rates.AllRatesActivity">
+        <activity android:name=".presentation.organizations.organizations.OrganizationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

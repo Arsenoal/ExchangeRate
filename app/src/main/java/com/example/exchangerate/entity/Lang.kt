@@ -1,9 +1,9 @@
 package com.example.exchangerate.entity
 
-sealed class Lang
+sealed class Lang(val lang: String)
 
-object EN: Lang()
+object EN: Lang("en")
 
-object RU: Lang()
+object RU: Lang("ru")
 
-object AM: Lang()
+object AM: Lang("am")

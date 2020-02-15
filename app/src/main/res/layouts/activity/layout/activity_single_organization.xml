@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".presentation.rates.SingleOrganizationActivity">
+    tools:context=".presentation.organizations.SingleOrganizationActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -292,7 +292,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/main_page_toolbar_height"
+            android:layout_height="@dimen/main_page_navbar_height"
             android:background="@drawable/shadow_bottom_background">
 
             <LinearLayout

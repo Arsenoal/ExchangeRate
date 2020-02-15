@@ -1,7 +1,7 @@
 package com.example.exchangerate.connector
 
 import android.content.Context
-import com.example.exchangerate.repo.apicreator.restApiCreatorModule
+import com.example.exchangerate.repo.service.apicreator.restApiCreatorModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -13,9 +13,10 @@ class DIModules {
 
                 modules(
                     listOf(
-                        restApiCreatorModule,
-                        ratesModule(context),
-                        organizationModule(context))
+                            restApiCreatorModule,
+                            navigatorModule,
+                            ratesModule(context),
+                            organizationModule(context))
                 )
             }
         }

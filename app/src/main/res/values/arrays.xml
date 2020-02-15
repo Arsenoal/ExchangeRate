@@ -2,6 +2,7 @@
 <resources>
     <array name="currencies">
         <item>USD</item>
+        <item>EUR</item>
     </array>
 
     <array name="weekDaysEn">
@@ -32,6 +33,21 @@
         <item>Ուրբաթ</item>
         <item>Շաբաթ</item>
         <item>Կիրակի</item>
+    </array>
+
+    <array name="paymentVariantsEn">
+        <item>Cache</item>
+        <item>Non cache</item>
+    </array>
+
+    <array name="paymentVariantsRu">
+        <item>Наличные</item>
+        <item>Не наличные</item>
+    </array>
+    
+    <array name="paymentVariantsAm">
+        <item>Կանխիկ</item>
+        <item>Անկանխիկ</item>
     </array>
 
 </resources>

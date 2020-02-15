@@ -1,6 +1,6 @@
 package com.example.exchangerate.business.currency
 
-import com.example.exchangerate.repo.rates.currency.CurrenciesListProviderRepo
+import com.example.exchangerate.repo.currency.CurrenciesListProviderRepo
 
 class GetCurrenciesListFromLocalArrayRes(
     private val currenciesListProviderRepo: CurrenciesListProviderRepo

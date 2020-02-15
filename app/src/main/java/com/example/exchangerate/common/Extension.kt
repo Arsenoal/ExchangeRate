@@ -1,12 +1,7 @@
 package com.example.exchangerate.common
 
-import com.example.exchangerate.entity.rates.Currency
 import com.example.exchangerate.entity.rates.Organization
-import com.example.exchangerate.presentation.rates.adapter.model.OrganizationAdapterModel
-
-fun List<Organization>.toOrganizationAdapterModelByCurrentCurrency(currencyName: String): List<OrganizationAdapterModel> {
-    return map { organization -> organization.toOrganizationAdapterModelByCurrentCurrency(currencyName) }
-}
+import com.example.exchangerate.presentation.organizations.organizations.adapter.model.OrganizationAdapterModel
 
 fun Organization.toOrganizationAdapterModelByCurrentCurrency(currencyName: String): OrganizationAdapterModel {
     val buy = rateParams
@@ -25,16 +20,12 @@ fun Organization.toOrganizationAdapterModelByCurrentCurrency(currencyName: Strin
 
     return run {
         OrganizationAdapterModel(
-            organizationId = id,
-            organizationName = rateParams.title,
-            icon = rateParams.logo,
-            distance = String.empty(),
-            buy = buy,
-            sell = sell
+                organizationId = id,
+                organizationName = rateParams.title,
+                icon = rateParams.logo,
+                distance = String.empty(),
+                buy = buy,
+                sell = sell
         )
     }
-}
-
-fun List<Currency>.getCurrencyByName(currencyName: String): Currency? {
-    return find { it.title == currencyName }
 }
