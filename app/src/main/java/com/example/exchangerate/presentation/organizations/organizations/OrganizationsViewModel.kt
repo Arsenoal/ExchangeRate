@@ -19,7 +19,7 @@ class OrganizationsViewModel(
     private val getPaymentVariantsUseCase: GetPaymentVariantsUseCase
 ): ViewModel() {
 
-    val ratesStateLiveData = MutableLiveData<RatesState>()
+    val organizatiosStateLiveData = MutableLiveData<OrganizationState>()
 
     val currenciesStateLiveData = MutableLiveData<CurrenciesState>()
 
@@ -36,12 +36,12 @@ class OrganizationsViewModel(
                             organizationAdapterModel = it.toOrganizationAdapterModelByCurrentCurrency(currencyName),
                             currencies = it.rateParams.listCurrency)
                 }.let { list ->
-                    ratesStateLiveData.value = RatesState(
+                    organizatiosStateLiveData.value = OrganizationState(
                             status = ERSuccess,
                             result = list)
                 }
             } catch (ex: Exception) {
-                ratesStateLiveData.value = RatesState(status = ERAppError)
+                organizatiosStateLiveData.value = OrganizationState(status = ERAppError)
             }
         }
     }
@@ -72,7 +72,7 @@ class OrganizationsViewModel(
         }
     }
 
-    class RatesState(status: ERStatus, result: List<OrganizationRatesModel> = emptyList())
+    class OrganizationState(status: ERStatus, result: List<OrganizationRatesModel> = emptyList())
         : BaseState<List<OrganizationRatesModel>>(
             status = status,
             result = result

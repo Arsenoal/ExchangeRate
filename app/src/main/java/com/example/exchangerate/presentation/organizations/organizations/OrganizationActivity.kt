@@ -97,7 +97,7 @@ class OrganizationActivity : FullScreenActivity() {
 
     private fun setupRatesViewModel() {
 
-        organizationsViewModel.ratesStateLiveData.observe(this, Observer { state ->
+        organizationsViewModel.organizatiosStateLiveData.observe(this, Observer { state ->
             when(state.status) {
                 ERSuccess -> {
                     organizations = state.result
