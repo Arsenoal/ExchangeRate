@@ -5,7 +5,6 @@ ext {
     supportLibraryVersion = '1.0.0'
     constraintVersion = '1.1.3'
     lifecycleExtensionsVersion = '2.0.0'
-    coroutineViewModelScopeVersion = '2.2.0'
     koinVersion = '2.0.1'
     reactivexRxKotlinVersion = '2.2.9'
     reactivexRxAndroidVersion = '2.1.1'
@@ -28,12 +27,24 @@ ext {
     //material
     materialVersion = "1.0.0"
 
+    //coroutines
+    lifecycleVersion = '2.2.0'
+    coroutinesAndroidVersion = '1.3.3'
+
     materialDependencies = [
             material     : "com.google.android.material:material:$materialVersion"
     ]
 
     kotlinDependencies = [
             kotlinStdlib : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    ]
+
+    kotlinxCoroutines = [
+            coroutineViewmodel          : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+            liveData                    : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+            lifecycle                   : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
+            savedState                  : "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion",
+            coroutinesAndroid           : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesAndroidVersion"
     ]
 
     supportLibraryDependencies = [
@@ -43,8 +54,7 @@ ext {
             supportAnnotations          : "androidx.annotation:annotation:$supportLibraryVersion",
             constraintLayout            : "androidx.constraintlayout:constraintlayout:$constraintVersion",
             pagingAdapter               : "androidx.paging:paging-runtime:$archComponentsVersion",
-            lifecycleExtensions         : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion",
-            coroutineViewmodel          : "androidx.lifecycle:lifecycle-viewmodel-ktx:$coroutineViewModelScopeVersion"
+            lifecycleExtensions         : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion"
     ]
 
     networkDependencies = [

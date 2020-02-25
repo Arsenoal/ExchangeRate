@@ -1,41 +1,34 @@
 package com.example.exchangerate.presentation.organizations
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.liveData
 import com.example.exchangerate.business.organization.GetOrganizationParamsByIdUseCase
 import com.example.exchangerate.business.weekdays.GetWeekDaysUseCase
 import com.example.exchangerate.entity.EN
 import com.example.exchangerate.entity.rates.OrganizationParams
-import kotlinx.coroutines.launch
 
 class SingleOrganizationViewModel(
         private val getOrganizationParamsByIdUseCase: GetOrganizationParamsByIdUseCase,
         private val getWeekDaysUseCase: GetWeekDaysUseCase
 ): ViewModel() {
 
-    val organizationParamsAcquiredLiveData = MutableLiveData<OrganizationParams>()
+    fun loadOrganizationParams(organizationId: String, organizationName: String): LiveData<Result<OrganizationParams>> = organizationsLiveData(organizationId, organizationName)
 
-    val organizationParamsAcquisitionFailLiveData = MutableLiveData<Any>()
+    private fun organizationsLiveData(organizationId: String, organizationName: String): LiveData<Result<OrganizationParams>> = liveData {
+        try {
+            val organizationParams: OrganizationParams = getOrganizationParamsByIdUseCase.getOrganization(organizationId, organizationName, EN)[0]
 
-    fun loadOrganizationParams(
-        organizationId: String,
-        organizationName: String) {
-        viewModelScope.launch {
-            try {
-                val organizationParams
-                        = getOrganizationParamsByIdUseCase.getOrganization(organizationId, organizationName, EN)[0]
-
-                val workingHours = organizationParams.workingHours.map { pair ->
-                    Pair(getWeekDaysUseCase.getWorkingDaysBy(EN, pair.first), pair.second)
-                }
-
-                organizationParams.workingHours = workingHours
-
-                organizationParamsAcquiredLiveData.value = organizationParams
-            } catch (ex: Exception) {
-                organizationParamsAcquisitionFailLiveData.value = Any()
+            val workingHours: List<Pair<String, String>> = organizationParams.workingHours.map { pair ->
+                val workingDaysByLang: String = getWeekDaysUseCase.getWorkingDaysBy(EN, pair.first)
+                Pair(workingDaysByLang, pair.second)
             }
+
+            organizationParams.workingHours = workingHours
+
+            emit(Result.success(organizationParams))
+        } catch (ex: Exception) {
+            emit(Result.failure(ex))
         }
     }
 

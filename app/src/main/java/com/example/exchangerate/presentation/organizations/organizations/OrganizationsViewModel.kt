@@ -1,17 +1,17 @@
 package com.example.exchangerate.presentation.organizations.organizations
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.liveData
 import com.example.exchangerate.business.currency.GetCurrenciesListUseCase
 import com.example.exchangerate.business.paymentvariants.GetPaymentVariantsUseCase
 import com.example.exchangerate.business.rates.GetRatesUseCase
 import com.example.exchangerate.common.toOrganizationAdapterModelByCurrentCurrency
 import com.example.exchangerate.entity.EN
-import com.example.exchangerate.presentation.common.entity.*
+import com.example.exchangerate.entity.rates.Organization
 import com.example.exchangerate.presentation.organizations.organizations.adapter.model.OrganizationRatesModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class OrganizationsViewModel(
     private val getRatesUseCase: GetRatesUseCase,
@@ -19,75 +19,46 @@ class OrganizationsViewModel(
     private val getPaymentVariantsUseCase: GetPaymentVariantsUseCase
 ): ViewModel() {
 
-    val organizatiosStateLiveData = MutableLiveData<OrganizationState>()
+    fun loadOrganizationsByCurrency(currencyName: String): LiveData<Result<List<OrganizationRatesModel>>> = organizationsLiveData(currencyName)
 
-    val currenciesStateLiveData = MutableLiveData<CurrenciesState>()
+    fun loadAvailableCurrencies(): LiveData<Result<List<String>>> = availableCurrenciesLiveData()
 
-    val paymentVariantsStateLiveData = MutableLiveData<PaymentVariantsState>()
+    fun loadPaymentVariants(): LiveData<Result<List<String>>> = paymentVariantsLiveData()
 
-    fun loadRatesByCurrency(currencyName: String) {
-        //TODO replace with extension functions on coroutines
-        viewModelScope.launch {
-            try {
-                delay(500)
+    private fun organizationsLiveData(currencyName: String): LiveData<Result<List<OrganizationRatesModel>>> = liveData {
+        try {
+            val organizations: List<Organization> = withContext(Dispatchers.Default) { getRatesUseCase.getRates(EN) }
 
-                getRatesUseCase.getRates(EN).map {
-                    OrganizationRatesModel(
-                            organizationAdapterModel = it.toOrganizationAdapterModelByCurrentCurrency(currencyName),
-                            currencies = it.rateParams.listCurrency)
-                }.let { list ->
-                    organizatiosStateLiveData.value = OrganizationState(
-                            status = ERSuccess,
-                            result = list)
-                }
-            } catch (ex: Exception) {
-                organizatiosStateLiveData.value = OrganizationState(status = ERAppError)
+            val organizationRates: List<OrganizationRatesModel> = organizations.map { organization ->
+                OrganizationRatesModel(
+                        organizationAdapterModel = organization.toOrganizationAdapterModelByCurrentCurrency(currencyName),
+                        currencies = organization.rateParams.listCurrency)
             }
+
+            emit(Result.success(organizationRates))
+        } catch (ex: Exception) {
+            emit(Result.failure(ex))
         }
     }
 
-    fun loadAvailableCurrencies() {
-        //TODO replace with extension functions on coroutines
-        viewModelScope.launch {
-            try {
-                getCurrenciesListUseCase.getCurrencies().let { list ->
-                    currenciesStateLiveData.value = CurrenciesState(status = ERSuccess, result = list)
-                }
-            } catch (ex: Exception) {
-                currenciesStateLiveData.value = CurrenciesState(status = ERAppError)
-            }
+    private fun availableCurrenciesLiveData(): LiveData<Result<List<String>>> = liveData {
+        try {
+            val currencies: List<String> = withContext(Dispatchers.IO) { getCurrenciesListUseCase.getCurrencies() }
+
+            emit(Result.success(currencies))
+        } catch (ex: Exception) {
+            emit(Result.failure(ex))
         }
     }
 
-    fun loadPaymentVariants() {
-        //TODO replace with extension functions on coroutines
-        viewModelScope.launch {
-            try {
-                getPaymentVariantsUseCase.getVariants(EN).let { list ->
-                    paymentVariantsStateLiveData.value = PaymentVariantsState(status = ERSuccess, result = list)
-                }
-            } catch (ex: Exception) {
-                paymentVariantsStateLiveData.value = PaymentVariantsState(status = ERAppError)
-            }
+    private fun paymentVariantsLiveData(): LiveData<Result<List<String>>> = liveData {
+        try {
+            val paymentVariants: List<String> = withContext(Dispatchers.IO) { getPaymentVariantsUseCase.getVariants(EN) }
+
+            emit(Result.success(paymentVariants))
+        } catch (ex: Exception) {
+            emit(Result.failure(ex))
         }
     }
-
-    class OrganizationState(status: ERStatus, result: List<OrganizationRatesModel> = emptyList())
-        : BaseState<List<OrganizationRatesModel>>(
-            status = status,
-            result = result
-    )
-
-    class CurrenciesState(status: ERStatus, result: List<String> = emptyList())
-        : BaseState<List<String>>(
-            status = status,
-            result = result
-    )
-
-    class PaymentVariantsState(status: ERStatus, result: List<String> = emptyList())
-        : BaseState<List<String>>(
-            status = status,
-            result = result
-    )
 
 }

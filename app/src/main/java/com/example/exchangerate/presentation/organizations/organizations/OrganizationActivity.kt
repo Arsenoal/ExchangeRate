@@ -11,7 +11,6 @@ import com.example.exchangerate.common.presentation.view.slideDown
 import com.example.exchangerate.common.toArrayAdapter
 import com.example.exchangerate.common.toSpinnerWithIconItems
 import com.example.exchangerate.presentation.base.FullScreenActivity
-import com.example.exchangerate.presentation.common.entity.ERSuccess
 import com.example.exchangerate.presentation.common.navigator.NavigatorFragment
 import com.example.exchangerate.presentation.common.navigator.NavigatorViewModel
 import com.example.exchangerate.presentation.organizations.ORGANIZATION_AVAILABLE_CURRENCIES_EXTRA
@@ -96,51 +95,13 @@ class OrganizationActivity : FullScreenActivity() {
     }
 
     private fun setupRatesViewModel() {
-
-        organizationsViewModel.organizatiosStateLiveData.observe(this, Observer { state ->
-            when(state.status) {
-                ERSuccess -> {
-                    organizations = state.result
-
-                    adapter.list = organizations.map { it.organizationAdapterModel }
-
-                    layoutProgressContainerView.slideDown()
-                }
-                else -> {
-                    //TODO show error or retry
-                    layoutProgressContainerView.slideDown()
+        organizationsViewModel.loadPaymentVariants().observe(this, Observer { result ->
+            if(result.isSuccess) {
+                result.getOrNull()?.let { list ->
+                    paymentVariantsView.adapter = list.toArrayAdapter(this, R.layout.layout_payment_type_spinner_item)
                 }
             }
         })
-
-        organizationsViewModel.currenciesStateLiveData.observe(this, Observer { state ->
-            when(state.status) {
-                ERSuccess -> {
-                    state.result.let { list ->
-                        currenciesView.adapter = list.toSpinnerWithIconItems().run {
-                            toArrayAdapter(this@OrganizationActivity, R.layout.layout_currency_spinner_item)
-                        }
-                        organizationsViewModel.loadRatesByCurrency(list[0])
-                    }
-                }
-                else -> {
-                    //TODO show error
-                }
-            }
-        })
-
-        organizationsViewModel.paymentVariantsStateLiveData.observe(this, Observer { state ->
-            when(state.status) {
-                ERSuccess -> {
-                    paymentVariantsView.adapter = state.result.toArrayAdapter(this, R.layout.layout_payment_type_spinner_item)
-                }
-                else -> {
-                    //TODO show error
-                }
-            }
-        })
-
-        organizationsViewModel.loadPaymentVariants()
 
     }
 
@@ -151,7 +112,26 @@ class OrganizationActivity : FullScreenActivity() {
 
         banksListRecyclerView.adapter = adapter
 
-        organizationsViewModel.loadAvailableCurrencies()
+        organizationsViewModel.loadAvailableCurrencies().observe(this, Observer { result ->
+            if(result.isSuccess) {
+                result.getOrNull()?.let { list ->
+                    currenciesView.adapter = list.toSpinnerWithIconItems().toArrayAdapter(this, R.layout.layout_currency_spinner_item)
+                    organizationsViewModel.loadOrganizationsByCurrency(list[0]).observe(this, Observer { organizationRatesResult ->
+
+                        if(organizationRatesResult.isSuccess) {
+                            organizationRatesResult.getOrNull()?.let { listOrganizations ->
+                                organizations = listOrganizations
+                                adapter.list = organizations.map { it.organizationAdapterModel }
+
+                                layoutProgressContainerView.slideDown()
+                            }
+                        } else {
+                            layoutProgressContainerView.slideDown()
+                        }
+                    })
+                }
+            }
+        })
     }
 
     private fun setupNavigator() {
